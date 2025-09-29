@@ -25,17 +25,29 @@ const AuthProvider = ({children}) => {
  const login=async(data)=>{
    try {
     const res=await axiosInstance.post('/api/login',data)
-    console.log(res.data);
+
+    console.log(res);
     FetchUser()
    } catch (error) {
-    throw new Error(err.response?.data?.error || "Login failed");
+    throw new Error(error.response?.data?.error || "Login failed");
    }
+ }
+
+
+ const logout=async()=>{
+  
+     const res= await axiosInstance.post('/api/logout')
+     console.log(res.data);
+
+    setUser(null)
+  
  }
 
  const authInfo={
     user,
     loading,
-    login
+    login,
+    logout
  }
  
 

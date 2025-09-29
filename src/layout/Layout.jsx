@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Layout = () => {
 
-  const {user}=useContext(AuthContext)
+  const {user,logout}=useContext(AuthContext)
 
   return (
     <div className="drawer lg:drawer-open">
@@ -55,7 +55,7 @@ const Layout = () => {
           <li>
 
             {
-              user?<button className="btn btn-error text-white"><FaSignInAlt className="text-lg" />  LogOut</button>: <Link to="/auth/login">
+              user?<button onClick={logout} className="btn btn-error text-white"><FaSignInAlt className="text-lg" />  LogOut</button>: <Link to="/auth/login">
               <FaSignInAlt className="text-lg" /> Login
             </Link>
             }

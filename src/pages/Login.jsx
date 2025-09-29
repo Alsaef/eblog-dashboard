@@ -13,8 +13,12 @@ const navigate=useNavigate()
   } = useForm()
 
 
-  const onSubmit = (data) => {
-       login(data)
+  const onSubmit = async(data) => {
+    
+    
+        login(data);
+        
+     
   }
 
 
